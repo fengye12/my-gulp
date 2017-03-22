@@ -2,12 +2,7 @@
 # JGulp:利用Gulp 配置的前端项目自动化工作流
 ====
 
-11月18日示：本项目将不再更新，谨慎关注！
-
 > JGulp 是本人利用Gulp 配置的适合自己的一个前端项目自动化工作流，目前正在实践运用中（通俗说用得还挺爽）。如果你有需要，可以参考本工作量构建适合自己的工作流。跪求Star，欢迎Fork！
-
-> 文章介绍：http://devework.com/jgulp.html
-
 
 ## 功能模块（插件）
 
@@ -40,6 +35,7 @@ Sass 是与 Less 并举的 CSS 预处理器，一种全新的CSS 编码方式。
 ### 图片无损压缩2：Tinypng 形式（gulp-tinypng）
 
 借用[tinypng](http://tinypng.org/) 的官方API 进行压缩，支持png、jpg 格式，后续通过 `gulp build2` 命令即可自动调用。因为服务器在国外原因，有时候会很慢。
+这个地方会用到熊猫压图的keyAPI要自己去申请
 
 ### 文件清理功能（gulp-clean）
 
