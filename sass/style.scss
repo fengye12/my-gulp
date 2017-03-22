@@ -1,0 +1,30 @@
+@import "compass/reset";
+@import "compass/css3";
+
+body{
+background-color: #fff;
+h1{
+color:red;
+line-height: 10px;
+background-color: #ff5400;
+}
+}
+img{
+max-width:100%;
+bordre-radius:5px;
+}
+.round{
+    @include border-radius(4px, 4px);
+    width:100px;
+    height:100px;
+    background:green;
+}
+
+
+
+
+
+
+
+
+
