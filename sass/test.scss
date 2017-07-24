@@ -1,0 +1,33 @@
+/*
+* @Author: anchen
+* @Date:   2017-07-22 14:14:57
+* @Last Modified by:   anchen
+* @Last Modified time: 2017-07-22 15:04:27
+*/
+html,body{
+height:100%;
+    background:blue;
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:-moz-box;
+    display:flex;
+}
+.warpper{
+    width:100%;
+    -webkit-transform:translate(2px,4px);
+            transform:translate(2px,4px);
+    border-radius:4px;
+    background:#ff5400;
+    height:300px;
+    .left{
+    float:left;
+    width:50%;
+    height:200px;
+    }
+    .right{
+    height:200px;
+    width:50%;
+    float:right;
+    background:yellow;
+    }
+}

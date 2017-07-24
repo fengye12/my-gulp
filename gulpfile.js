@@ -18,7 +18,24 @@ var lr         = require('tiny-lr'),
     sftp       = require('gulp-sftp'),
     config     = require('./config.json');
 
-//压缩javascript 文件，压缩后文件放入/js下
+
+  //  var gulp = require('gulp'),
+
+
+   //gulp.task('testAutoFx', function () {
+ //     gulp.src('css/*.css')
+  //    .pipe(autoprefixer({
+     //       browsers: ['last 2 versions', 'Android >= 4.0'],
+  //    cascade: true, //是否美化属性值 默认：true 像这样：
+            //-webkit-transform: rotate(45deg);
+            //        transform: rotate(45deg);
+      //      remove:true //是否去掉不必要的前缀 默认：true
+      //    }))
+      //     .pipe(gulp.dest('./css/css'));
+ //  });
+
+
+//压缩javascript 文件，压缩后文件放入/js/min下
 gulp.task('minifyjs',function(){
     gulp.src('js/*.js')
     .pipe(uglify())
@@ -27,9 +44,9 @@ gulp.task('minifyjs',function(){
 
 //合并build/js文件夹下的所有javascript 文件为一个main.js放入build/js下
 gulp.task('alljs', function() {
-  return gulp.src('./build/js/*.js')
-    .pipe(concat('main.min.js'))
-    .pipe(gulp.dest('./js/min'));
+ return gulp.src('./build/js/*.js')
+  .pipe(concat('main.min.js'))
+  .pipe(gulp.dest('./build/js'));
 });
 
 //重命名project.md 文件
@@ -92,14 +109,16 @@ gulp.task('tinypng', function () {
 //将相关项目文件复制到build 文件夹下
 gulp.task('buildfiles', function() {
    //根目录文件
+
    gulp.src('./*.{php,html,css,png}')
    .pipe(gulp.dest('./build'));
+   gulp.src('./js/min/*')
+   .pipe(gulp.dest('./build/js'));
    //CSS文件
    gulp.src('./css/*')
    .pipe(gulp.dest('./build/css'));
     //压缩后的js文件
-   gulp.src('./js/min/*')
-   .pipe(gulp.dest('./build/js'));
+
 });
 
 //文件监控
@@ -145,9 +164,9 @@ gulp.task('build', function(){
   gulp.run('compass');
   gulp.run('minifyjs');
   gulp.run('alljs');
-  gulp.run('buildfiles');
   gulp.run('rename');
-  //gulp.run('clean');
+  gulp.run('buildfiles');
+  gulp.run('clean');
 });
 
 //项目完成提交任务
@@ -155,10 +174,10 @@ gulp.task('build2', function(){
   gulp.run('tinypng');
   gulp.run('compass');
   gulp.run('minifyjs');
-  gulp.run('alljs');
   gulp.run('buildfiles');
+  gulp.run('alljs');
   gulp.run('rename');
-  //gulp.run('clean');
+  gulp.run('clean');
 });
 
 //打包主体build 文件夹并按照时间重命名

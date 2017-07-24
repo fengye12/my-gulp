@@ -15,9 +15,20 @@ bordre-radius:5px;
 }
 .round{
     @include border-radius(4px, 4px);
-    width:100px;
-    height:100px;
-    background:green;
+    width:200px;
+    height:200px;
+    background:blue;
+}
+.gulp{
+    color:red;
+    width:320px;
+    height:320px;
+    border:1px solid #ddd;
+    border-radius:4px;
+}
+body{
+    height:100%;
+    background:#000;
 }
 
 
